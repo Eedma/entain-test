@@ -1,47 +1,116 @@
-# Getting Started with Create React App
+# Entain Challange - Movie Library Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Overview
 
-## Available Scripts
+This project is a Movie Library application built using React on the frontend and ExpressJS on the backend. The frontend utilizes RTK Query for state management and data fetching, while the backend serves as a middle layer to fetch movie data from the TMDB API. Tailwind CSS is used for styling the frontend
 
-In the project directory, you can run:
+## Technologies Used
 
-### `npm start`
+-   **Frontend**: React, TypeScript, RTK Query, Tailwind CSS
+-   **Backend**: ExpressJS, Axios
+-   **State Management**: Redux Toolkit (RTK Query)
+-   **Styling**: Tailwind CSS
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Project Structure
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Backend (ExpressJS)
 
-### `npm test`
+-   **`index.js`**: The main file for the Express server, handles API routes for fetching popular movies and searching movies by title
+-   **`.env`**: Contains the TMDB API key (kept out of version control)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Frontend (React + RTK Query + TailwindCSS)
 
-### `npm run build`
+-   **`store/index.ts`**: Setup of the Redux store, integrating RTK Query for data fetching and caching.
+-   **`features/moviesApi.ts`**: Defines API endpoints using RTK Query to fetch movie data from the backend
+-   **`components/`**: Contains React components like `MovieList` and `SearchBar` that handle displaying movies and searching for them
+-   **`App.tsx`**: Main application component that ties everything together
+-   **`tailwind.config.js`**: Configuration for Tailwind CSS
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Key Decisions & Focus Areas
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 1. React with TypeScript
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+-   **Why**: TypeScript provides static typing, which helps in catching errors during development and improves code quality
 
-### `npm run eject`
+### 2. RTK Query for State Management and Data Fetching
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+-   **Why**: RTK Query simplifies data fetching, caching, and synchronization with the component state. It integrates seamlessly with Redux and allows for efficient data management. And yes, it was reccomended to use it
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### 3. ExpressJS as the Backend
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+-   **Why**: I'm not really proficient with Nestjs and I'm still on my way to transitioning as a fullstack developer, so I preferred to use ExpressJS to not mess it up
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### 4. Tailwind CSS for Styling
 
-## Learn More
+-   **Why**: Even though Material UI and Styled Components were reccomended, I preferred to use Tailwind CSS for the simplicity and ease of use. And because it was way faster to build the UI
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### 5. Environment Variables
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-# entain-test
+-   **Why**: Sensitive data like the TMDB API key is stored in environment variables to keep it secure and out of the version control system. This ensures that the application can be easily configured for different environments (development, production, etc.) without exposing sensitive information
+
+## Installation & Setup
+
+**Clone the repository:**
+
+    ```bash
+    git clone <repository-url>
+    cd entain-test
+    ```
+
+### Backend:
+
+1. **Navigate to the backend directory:**
+
+    ```bash
+    cd backend
+    ```
+
+1. **Install dependencies:**
+
+    ```bash
+    npm install
+    ```
+
+1. **Set up environment variables:**
+   Create a `.env` file in the root directory and add your TMDB API key
+
+    ```
+    TMDB_API_KEY=your_api_key_here
+    ```
+
+1. **Run the backend server:**
+    ```bash
+    npm start
+    ```
+    The server will start on `http://localhost:6060` by default.
+
+### Frontend:
+
+1. **Navigate to the frontend directory:**
+
+    ```bash
+    cd ../frontend
+    ```
+
+2. **Install dependencies:**
+
+    ```bash
+    npm install
+    ```
+
+3. **Run the frontend development server:**
+
+    ```bash
+    npm start
+    ```
+
+    The React app will start on `http://localhost:3000`
+
+4. **Access the application:**
+   Open your browser and go to `http://localhost:3000` to view the Movie Library application
+
+## Usage
+
+-   The home page displays a list of popular movies
+-   Use the search bar to find movies by title
+-   Click on a movie to view more details
