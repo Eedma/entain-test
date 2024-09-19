@@ -16,7 +16,7 @@ This project is a Movie Library application built using React on the frontend an
 ### Backend (ExpressJS)
 
 -   **`index.js`**: The main file for the Express server, handles API routes for fetching popular movies and searching movies by title
--   **`.env`**: Contains the TMDB API key (kept out of version control)
+-   **`.env.local`**: Contains the TMDB API key (kept out of version control)
 
 ### Frontend (React + RTK Query + TailwindCSS)
 
@@ -108,6 +108,14 @@ This project is a Movie Library application built using React on the frontend an
 
 4. **Access the application:**
    Open your browser and go to `http://localhost:3000` to view the Movie Library application
+
+### Update:
+
+    You can now launch the app concurrently, in root folder run
+
+    ```bash
+    npm run start
+    ```
 
 ## Usage
 

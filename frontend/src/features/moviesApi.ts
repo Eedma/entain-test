@@ -5,7 +5,7 @@ export const moviesApi = createApi({
     baseQuery: fetchBaseQuery({baseUrl: "http://localhost:6060/api/"}),
     endpoints: (builder) => ({
         getMovies: builder.query({
-            query: () => "movies",
+            query: () => "movies/popular",
         }),
         searchMovies: builder.query({
             query: (title: string) => `movies/search?title=${title}`,
