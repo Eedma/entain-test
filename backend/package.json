@@ -5,6 +5,7 @@
     "main": "index.js",
     "scripts": {
         "start": "nodemon --env-file=.env.local src/server.js",
+        "vercel-build": "npm install && npm run build",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "keywords": [],
