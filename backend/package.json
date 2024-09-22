@@ -2,7 +2,7 @@
     "name": "backend",
     "version": "1.0.0",
     "description": "",
-    "main": "index.js",
+    "main": "src/server.js",
     "scripts": {
         "start": "nodemon --env-file=.env.local src/server.js",
         "vercel-build": "npm install && npm run build",

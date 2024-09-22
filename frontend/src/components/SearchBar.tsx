@@ -12,7 +12,7 @@ const SearchBar: React.FC = () => {
         }, 500);
 
         return () => clearTimeout(timeoutId);
-    }, [query]);
+    }, [query, dispatch]);
 
     return (
         <div className="mb-6">
