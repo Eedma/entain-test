@@ -34,7 +34,14 @@ export const moviesApi = createApi({
                 }
             },
         }),
+        getMovieDetail: builder.query({
+            query: (id: string) => `movie/${id}`,
+        }),
     }),
 });
 
-export const {useGetPopularMoviesQuery, useSearchMoviesQuery} = moviesApi;
+export const {
+    useGetPopularMoviesQuery,
+    useSearchMoviesQuery,
+    useGetMovieDetailQuery,
+} = moviesApi;

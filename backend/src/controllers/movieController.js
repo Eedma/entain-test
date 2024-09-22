@@ -1,6 +1,7 @@
 const {
     fetchPopularMovies,
     searchMoviesByTitle,
+    getMovieById,
 } = require("../models/movieModel");
 
 const getPopularMovies = async (req, res) => {
@@ -16,7 +17,6 @@ const getPopularMovies = async (req, res) => {
 
 const searchMovies = async (req, res) => {
     const {title, page = 1} = req.query;
-    console.log("query", title);
     if (!title) {
         return res.status(400).json({error: "Search query is required"});
     }
@@ -29,7 +29,22 @@ const searchMovies = async (req, res) => {
     }
 };
 
+const getMovieDetails = async (req, res) => {
+    const {id} = req.params;
+    if (!id) {
+        return res.status(400).json({error: "Movie id is missing"});
+    }
+    try {
+        const data = await getMovieById(id);
+        res.json(data);
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({error: "Failed to search for movie"});
+    }
+};
+
 module.exports = {
     getPopularMovies,
     searchMovies,
+    getMovieDetails,
 };
